@@ -1,0 +1,71 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Microcommerce",
+		"_postman_id": "c056a6a9-45e6-5bd0-3cc3-8e14107729a7",
+		"description": "My microcommerce requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Affichage de la marge",
+			"request": {
+				"url": "http://localhost:8080/Produits",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4,\n    \"nom\": \"Table babyfoot\",\n    \"prix\": 325\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Tri par ordre alphabétique",
+			"request": {
+				"url": "http://localhost:8080/Produits",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4,\n    \"nom\": \"Table babyfoot\",\n    \"prix\": 325\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Validation du prix de vente",
+			"request": {
+				"url": "http://localhost:8080/Produits",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4,\n    \"nom\": \"Table babyfoot\",\n    \"prix\": 325\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
