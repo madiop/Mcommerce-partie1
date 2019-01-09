@@ -123,24 +123,4 @@ public class ProductController {
 
         return produitsFiltres;
     }
-
-    /*
-    @ApiOperation(value = "Retournera la liste de tous les produits triés par nom croissant")
-    @RequestMapping(value="/Produits", method=RequestMethod.GET)
-    public MappingJacksonValue trierProduitsParOrdreAlphabetique() {
-        
-       List<Product> produits = productDao.findAll();
-
-       SimpleBeanPropertyFilter monFiltre = SimpleBeanPropertyFilter.serializeAllExcept("prixAchat");
-
-       FilterProvider listDeNosFiltres = new SimpleFilterProvider().addFilter("monFiltreDynamique", monFiltre);
-
-       MappingJacksonValue produitsFiltres = new MappingJacksonValue(produits);
-
-       produitsFiltres.setFilters(listDeNosFiltres);
-
-       return produitsFiltres;
-    }
-    */
-
 }
