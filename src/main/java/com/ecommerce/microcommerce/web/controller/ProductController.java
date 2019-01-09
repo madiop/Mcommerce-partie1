@@ -17,6 +17,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 
 @Api( description="API pour es opérations CRUD sur les produits.")
@@ -104,5 +106,48 @@ public class ProductController {
     }
 
 
+    @ApiOperation(value = "Calcule la marge de chaque produit (différence entre prix d‘achat et prix de vente).")
+    @GetMapping(value="/AdminProduits")
+    public MappingJacksonValue calculerMargeProduit() {
+        Map<String, Integer> mapProduits = new HashMap<String, Integer>(); ;
+
+        Iterable<Product> produits = productDao.findAll();
+
+        for (Product produit: produits) {
+            int marge = produit.getPrix() - produit.getPrixAchat();
+            mapProduits.put(produit.toString(), marge);
+            
+        }
+        
+
+        // SimpleBeanPropertyFilter monFiltre = SimpleBeanPropertyFilter.serializeAllExcept("prixAchat");
+
+        // FilterProvider listDeNosFiltres = new SimpleFilterProvider().addFilter("monFiltreDynamique", monFiltre);
+
+        MappingJacksonValue produitsFiltres = new MappingJacksonValue(mapProduits);
+
+        // produitsFiltres.setFilters(listDeNosFiltres);
+
+        return produitsFiltres;
+    }
+
+    /*
+    @ApiOperation(value = "Retournera la liste de tous les produits triés par nom croissant")
+    @RequestMapping(value="/Produits", method=RequestMethod.GET)
+    public MappingJacksonValue trierProduitsParOrdreAlphabetique() {
+        
+       List<Product> produits = productDao.findAll();
+
+       SimpleBeanPropertyFilter monFiltre = SimpleBeanPropertyFilter.serializeAllExcept("prixAchat");
+
+       FilterProvider listDeNosFiltres = new SimpleFilterProvider().addFilter("monFiltreDynamique", monFiltre);
+
+       MappingJacksonValue produitsFiltres = new MappingJacksonValue(produits);
+
+       produitsFiltres.setFilters(listDeNosFiltres);
+
+       return produitsFiltres;
+    }
+    */
 
 }
