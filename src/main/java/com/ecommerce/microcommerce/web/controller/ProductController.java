@@ -118,15 +118,8 @@ public class ProductController {
             mapProduits.put(produit.toString(), marge);
             
         }
-        
-
-        // SimpleBeanPropertyFilter monFiltre = SimpleBeanPropertyFilter.serializeAllExcept("prixAchat");
-
-        // FilterProvider listDeNosFiltres = new SimpleFilterProvider().addFilter("monFiltreDynamique", monFiltre);
 
         MappingJacksonValue produitsFiltres = new MappingJacksonValue(mapProduits);
-
-        // produitsFiltres.setFilters(listDeNosFiltres);
 
         return produitsFiltres;
     }
