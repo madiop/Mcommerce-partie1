@@ -123,4 +123,16 @@ public class ProductController {
 
         return produitsFiltres;
     }
+
+    
+    @ApiOperation(value = "Retourne la liste de tous les produits triés par nom croissant")
+    @GetMapping(value="/ProduitsParOrdre")
+    public MappingJacksonValue trierProduitsParOrdreAlphabetique() {
+        
+       List<Product> produits = productDao.findAllByOrderByNomAsc();
+
+       MappingJacksonValue produitsFiltres = new MappingJacksonValue(produits);
+
+       return produitsFiltres;
+    }
 }
